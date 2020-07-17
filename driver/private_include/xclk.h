@@ -2,6 +2,6 @@
 
 #include "camera_common.h"
 
-esp_err_t camera_enable_out_clock();
+esp_err_t camera_enable_out_clock(const camera_config_t* config);
 
 void camera_disable_out_clock();

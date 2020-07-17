@@ -25,7 +25,7 @@
 #define TAG ""
 #else
 #include "esp_log.h"
-static const char* TAG = "to_bmp";
+// static const char* TAG = "to_bmp";
 #endif
 
 static const int BMP_HEADER_LEN = 54;
@@ -105,7 +105,7 @@ static bool _rgb_write(void * arg, uint16_t x, uint16_t y, uint16_t w, uint16_t 
 }
 
 //input buffer
-static uint32_t _jpg_read(void * arg, size_t index, uint8_t *buf, size_t len)
+static uint32_t __jpg_read(void * arg, size_t index, uint8_t *buf, size_t len)
 {
     rgb_jpg_decoder * jpeg = (rgb_jpg_decoder *)arg;
     if(buf) {
@@ -123,7 +123,7 @@ static bool jpg2rgb888(const uint8_t *src, size_t src_len, uint8_t * out, jpg_sc
     jpeg.output = out;
     jpeg.data_offset = 0;
 
-    if(esp_jpg_decode(src_len, scale, _jpg_read, _rgb_write, (void*)&jpeg) != ESP_OK){
+    if(esp_jpg_decode(src_len, scale, __jpg_read, _rgb_write, (void*)&jpeg) != ESP_OK){
         return false;
     }
     return true;
@@ -139,7 +139,7 @@ bool jpg2bmp(const uint8_t *src, size_t src_len, uint8_t ** out, size_t * out_le
     jpeg.output = NULL;
     jpeg.data_offset = BMP_HEADER_LEN;
 
-    if(esp_jpg_decode(src_len, JPG_SCALE_NONE, _jpg_read, _rgb_write, (void*)&jpeg) != ESP_OK){
+    if(esp_jpg_decode(src_len, JPG_SCALE_NONE, __jpg_read, _rgb_write, (void*)&jpeg) != ESP_OK){
         return false;
     }
 

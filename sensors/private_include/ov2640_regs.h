@@ -11,8 +11,8 @@
 #define R_BYPASS            0x05
 #define QS                  0x44
 #define CTRLI               0x50
-#define HSIZE               0x51
-#define VSIZE               0x52
+#define H_SIZE               0x51
+#define V_SIZE               0x52
 #define XOFFL               0x53
 #define YOFFL               0x54
 #define VHYX                0x55
@@ -116,10 +116,10 @@ typedef enum {
 #define COM8                0x13
 #define COM9                0x14 /* AGC gain ceiling */
 #define COM10               0x15
-#define HSTART              0x17
+#define H_START              0x17
 #define HSTOP               0x18
-#define VSTART              0x19
-#define VSTOP               0x1A
+#define V_START              0x19
+#define V_STOP               0x1A
 #define MIDH                0x1C
 #define MIDL                0x1D
 #define AEW                 0x24

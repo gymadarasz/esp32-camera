@@ -9,7 +9,7 @@
 #include "esp32-hal-log.h"
 #else
 #include "esp_log.h"
-static const char* TAG = "camera_xclk";
+// static const char* TAG = "camera_xclk";
 #endif
 
 esp_err_t xclk_timer_conf(int ledc_timer, int xclk_freq_hz)
@@ -29,7 +29,7 @@ esp_err_t xclk_timer_conf(int ledc_timer, int xclk_freq_hz)
     return err;
 }
 
-esp_err_t camera_enable_out_clock(camera_config_t* config)
+esp_err_t camera_enable_out_clock(const camera_config_t* config)
 {
     periph_module_enable(PERIPH_LEDC_MODULE);
 

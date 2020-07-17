@@ -101,8 +101,8 @@ typedef struct {
 extern const resolution_info_t resolution[];
 
 typedef struct {
-    uint8_t MIDH;
-    uint8_t MIDL;
+    uint8_t MID_H;
+    uint8_t MID_L;
     uint8_t PID;
     uint8_t VER;
 } sensor_id_t;

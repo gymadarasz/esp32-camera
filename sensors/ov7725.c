@@ -32,10 +32,10 @@ static const uint8_t default_regs[][2] = {
     {CLKRC,         0x80 | 0x03}, /* Res/Bypass pre-scalar (0x40:bypass, 0x00-0x3F:prescaler PCLK=XCLK/(prescaler + 1)/2 ) */
 
     // QVGA Window Size
-    {HSTART,        0x3F},
-    {HSIZE,         0x50},
-    {VSTART,        0x03},
-    {VSIZE,         0x78},
+    {H_START,        0x3F},
+    {H_SIZE,         0x50},
+    {V_START,        0x03},
+    {V_SIZE,         0x78},
     {HREF,          0x00},
 
     // Scale down to QVGA Resolution
@@ -234,8 +234,8 @@ static int set_framesize(sensor_t *sensor, framesize_t framesize)
     ret |= SCCB_Write(sensor->slv_addr, HOUTSIZE, w>>2);
     ret |= SCCB_Write(sensor->slv_addr, VOUTSIZE, h>>1);
 
-    ret |= SCCB_Write(sensor->slv_addr, HSIZE, w>>2);
-    ret |= SCCB_Write(sensor->slv_addr, VSIZE, h>>1);
+    ret |= SCCB_Write(sensor->slv_addr, H_SIZE, w>>2);
+    ret |= SCCB_Write(sensor->slv_addr, V_SIZE, h>>1);
 
     // Write LSBs
     ret |= SCCB_Write(sensor->slv_addr, HREF, ((w&0x3) | ((h&0x1) << 2)));
@@ -244,8 +244,8 @@ static int set_framesize(sensor_t *sensor, framesize_t framesize)
         // Enable auto-scaling/zooming factors
         ret |= SCCB_Write(sensor->slv_addr, DSPAUTO, 0xFF);
 
-        ret |= SCCB_Write(sensor->slv_addr, HSTART, 0x3F);
-        ret |= SCCB_Write(sensor->slv_addr, VSTART, 0x03);
+        ret |= SCCB_Write(sensor->slv_addr, H_START, 0x3F);
+        ret |= SCCB_Write(sensor->slv_addr, V_START, 0x03);
 
         ret |= SCCB_Write(sensor->slv_addr, COM7, reg | COM7_RES_QVGA);
 
@@ -260,8 +260,8 @@ static int set_framesize(sensor_t *sensor, framesize_t framesize)
         ret |= SCCB_Write(sensor->slv_addr, SCAL1, 0x00);
         ret |= SCCB_Write(sensor->slv_addr, SCAL2, 0x00);
 
-        ret |= SCCB_Write(sensor->slv_addr, HSTART, 0x23);
-        ret |= SCCB_Write(sensor->slv_addr, VSTART, 0x07);
+        ret |= SCCB_Write(sensor->slv_addr, H_START, 0x23);
+        ret |= SCCB_Write(sensor->slv_addr, V_START, 0x07);
 
         ret |= SCCB_Write(sensor->slv_addr, COM7, reg & ~COM7_RES_QVGA);
 

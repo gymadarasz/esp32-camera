@@ -16,7 +16,7 @@
 #include "esp32-hal-log.h"
 #else
 #include "esp_log.h"
-static const char* TAG = "sccb";
+// static const char* TAG = "sccb";
 #endif
 
 //#undef CONFIG_SCCB_HARDWARE_I2C

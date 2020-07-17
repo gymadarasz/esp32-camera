@@ -124,10 +124,10 @@
 
 #define REG16                   0x16 /* Register 16 */
 #define REG16_BIT_SHIFT         0x80 /* Bit shift test pattern options */
-#define HSTART                  0x17 /* Horizontal Frame (HREF column) Start 8 MSBs (2 LSBs are at HREF[5:4]) */
-#define HSIZE                   0x18 /* Horizontal Sensor Size (2 LSBs are at HREF[1:0]) */
-#define VSTART                  0x19 /* Vertical Frame (row) Start 8 MSBs (1 LSB is at HREF[6]) */
-#define VSIZE                   0x1A /* Vertical Sensor Size (1 LSB is at HREF[2]) */
+#define H_START                  0x17 /* Horizontal Frame (HREF column) Start 8 MSBs (2 LSBs are at HREF[5:4]) */
+#define H_SIZE                   0x18 /* Horizontal Sensor Size (2 LSBs are at HREF[1:0]) */
+#define V_START                  0x19 /* Vertical Frame (row) Start 8 MSBs (1 LSB is at HREF[6]) */
+#define V_SIZE                   0x1A /* Vertical Sensor Size (1 LSB is at HREF[2]) */
 #define PSHFT                   0x1B /* Data Format - Pixel Delay Select */
 #define REG_MIDH                    0x1C /* Manufacturer ID Byte – High */
 #define REG_MIDL                    0x1D /* Manufacturer ID Byte – Low */

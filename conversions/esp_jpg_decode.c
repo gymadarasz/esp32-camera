@@ -29,7 +29,7 @@
 #define TAG ""
 #else
 #include "esp_log.h"
-static const char* TAG = "esp_jpg_decode";
+// static const char* TAG = "esp_jpg_decode";
 #endif
 
 typedef struct {

@@ -71,7 +71,7 @@ typedef enum {
 #define TAG ""
 #else
 #include "esp_log.h"
-static const char* TAG = "camera";
+// static const char* TAG = "camera";
 #endif
 static const char* CAMERA_SENSOR_NVS_KEY = "sensor";
 static const char* CAMERA_PIXFORMAT_NVS_KEY = "pixformat";
@@ -956,7 +956,7 @@ esp_err_t camera_probe(const camera_config_t* config, camera_model_t* out_camera
     }
 
     ESP_LOGD(TAG, "Enabling XCLK output");
-    camera_enable_out_clock(config);
+    ESP_ERROR_CHECK( camera_enable_out_clock(config) );
 
     ESP_LOGD(TAG, "Initializing SSCB");
     SCCB_Init(config->pin_sscb_sda, config->pin_sscb_scl);
@@ -1025,11 +1025,11 @@ esp_err_t camera_probe(const camera_config_t* config, camera_model_t* out_camera
 #endif
         id->PID = SCCB_Read(s_state->sensor.slv_addr, REG_PID);
         id->VER = SCCB_Read(s_state->sensor.slv_addr, REG_VER);
-        id->MIDL = SCCB_Read(s_state->sensor.slv_addr, REG_MIDL);
-        id->MIDH = SCCB_Read(s_state->sensor.slv_addr, REG_MIDH);
+        id->MID_L = SCCB_Read(s_state->sensor.slv_addr, REG_MIDL);
+        id->MID_H = SCCB_Read(s_state->sensor.slv_addr, REG_MIDH);
         vTaskDelay(10 / portTICK_PERIOD_MS);
         ESP_LOGD(TAG, "Camera PID=0x%02x VER=0x%02x MIDL=0x%02x MIDH=0x%02x",
-                 id->PID, id->VER, id->MIDH, id->MIDL);
+                 id->PID, id->VER, id->MID_H, id->MID_L);
 
 #if (CONFIG_OV3660_SUPPORT || CONFIG_OV5640_SUPPORT)
     }

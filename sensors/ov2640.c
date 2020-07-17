@@ -20,7 +20,7 @@
 #include "esp32-hal-log.h"
 #else
 #include "esp_log.h"
-static const char* TAG = "ov2640";
+// static const char* TAG = "ov2640";
 #endif
 
 static volatile ov2640_bank_t reg_bank = BANK_MAX;
@@ -145,8 +145,8 @@ static int set_window(sensor_t *sensor, ov2640_sensor_mode_t mode, int offset_x,
     h /= 4;
     uint8_t win_regs[][2] = {
         {BANK_SEL, BANK_DSP},
-        {HSIZE, max_x & 0xFF},
-        {VSIZE, max_y & 0xFF},
+        {H_SIZE, max_x & 0xFF},
+        {V_SIZE, max_y & 0xFF},
         {XOFFL, offset_x & 0xFF},
         {YOFFL, offset_y & 0xFF},
         {VHYX, ((max_y >> 1) & 0X80) | ((offset_y >> 4) & 0X70) | ((max_x >> 5) & 0X08) | ((offset_y >> 8) & 0X07)},

@@ -114,10 +114,10 @@ const DRAM_ATTR uint8_t ov2640_settings_cif[][2] = {
     {BD50, 0xbb},
     {BD60, 0x9c},
     {COM7, COM7_RES_CIF},
-    {HSTART, 0x11},
+    {H_START, 0x11},
     {HSTOP, 0x43},
-    {VSTART, 0x00},
-    {VSTOP, 0x25},
+    {V_START, 0x00},
+    {V_STOP, 0x25},
     {REG32, 0x89},
     {0x37, 0xc0},
     {BD50, 0xca},
@@ -230,10 +230,10 @@ const DRAM_ATTR uint8_t ov2640_settings_to_cif[][2] = {
     //Set the sensor output window
     {COM1, 0x0A},
     {REG32, REG32_CIF},
-    {HSTART, 0x11},
+    {H_START, 0x11},
     {HSTOP, 0x43},
-    {VSTART, 0x00},
-    {VSTOP, 0x25},
+    {V_START, 0x00},
+    {V_STOP, 0x25},
 
     //{CLKRC, 0x00},
     {BD50, 0xca},
@@ -261,8 +261,8 @@ const DRAM_ATTR uint8_t ov2640_settings_to_cif[][2] = {
     {SIZEL, 0x00},
 
     //Set the image window size >= output size
-    {HSIZE, 0x64},
-    {VSIZE, 0x4a},
+    {H_SIZE, 0x64},
+    {V_SIZE, 0x4a},
     {XOFFL, 0x00},
     {YOFFL, 0x00},
     {VHYX, 0x00},
@@ -281,10 +281,10 @@ const DRAM_ATTR uint8_t ov2640_settings_to_svga[][2] = {
     //Set the sensor output window
     {COM1, 0x0A},
     {REG32, REG32_SVGA},
-    {HSTART, 0x11},
+    {H_START, 0x11},
     {HSTOP, 0x43},
-    {VSTART, 0x00},
-    {VSTOP, 0x4b},
+    {V_START, 0x00},
+    {V_STOP, 0x4b},
 
     //{CLKRC, 0x00},
     {0x37, 0xc0},
@@ -314,8 +314,8 @@ const DRAM_ATTR uint8_t ov2640_settings_to_svga[][2] = {
     {SIZEL, 0x00},
 
     //Set the image window size >= output size
-    {HSIZE, 0xC8},
-    {VSIZE, 0x96},
+    {H_SIZE, 0xC8},
+    {V_SIZE, 0x96},
     {XOFFL, 0x00},
     {YOFFL, 0x00},
     {VHYX, 0x00},
@@ -334,10 +334,10 @@ const DRAM_ATTR uint8_t ov2640_settings_to_uxga[][2] = {
     //Set the sensor output window
     {COM1, 0x0F},
     {REG32, REG32_UXGA},
-    {HSTART, 0x11},
+    {H_START, 0x11},
     {HSTOP, 0x75},
-    {VSTART, 0x01},
-    {VSTOP, 0x97},
+    {V_START, 0x01},
+    {V_STOP, 0x97},
 
     //{CLKRC, 0x00},
     {0x3d, 0x34},
@@ -366,8 +366,8 @@ const DRAM_ATTR uint8_t ov2640_settings_to_uxga[][2] = {
     {SIZEL, 0x00},
 
     //Set the image window size >= output size
-    {HSIZE, 0x90},
-    {VSIZE, 0x2c},
+    {H_SIZE, 0x90},
+    {V_SIZE, 0x2c},
     {XOFFL, 0x00},
     {YOFFL, 0x00},
     {VHYX, 0x88},
